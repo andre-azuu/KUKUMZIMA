@@ -10,3 +10,9 @@ def about(request):
 
 def farm(request):
     return render(request, 'myapp/farm.html')
+
+def login(request):
+    return render(request, 'myapp/login.html')
+
+def signup(request):
+    return render(request, 'myapp/signup.html')
