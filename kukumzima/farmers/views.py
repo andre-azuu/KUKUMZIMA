@@ -1,8 +1,12 @@
 from django.shortcuts import render
 
-# Create your views here.
-from django.http import HttpResponse
+
+def home(request):
+    return render(request, 'myapp/home.html')
 
 
-def index(request):
-    return HttpResponse("Hello Farmer")
+def about(request):
+    return render(request, 'myapp/about.html')
+
+def farm(request):
+    return render(request, 'myapp/farm.html')

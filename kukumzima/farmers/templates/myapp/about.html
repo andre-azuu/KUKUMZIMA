@@ -1,0 +1,43 @@
+{% extends "myapp/base.html" %}
+
+{% block title %}About Us - Kukumzima{% endblock %}
+
+{% block content %}
+<!-- content -->
+    <div class="container">
+        <h2>About Us</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>
+                    Kukumzima is a comprehensive solution designed to streamline and optimize poultry farming operations. It integrates key components such as bird management, feed management, production tracking, environmental monitoring, data analysis, and financial management. By tracking bird inventory, health, feed usage, and production rates, the system helps in maintaining optimal conditions for poultry growth and production. Environmental monitoring ensures that temperature, humidity, and ventilation are controlled, enhancing bird welfare.
+                </p>
+                <p>
+                    Additionally, the system provides real-time data and performance metrics through interactive dashboards, facilitating data-driven decision-making. By automating routine tasks and ensuring compliance with regulatory standards, a PMS improves operational efficiency, productivity, and profitability for poultry farms.
+                </p>
+            </div>
+            <div class="about-image">
+                <img src="https://via.placeholder.com/600x400" alt="Poultry farming">
+            </div>
+        </div>
+    </div>
+
+    <p>Want to buy eggs?
+        <a href=""> Sign is as customer...</a>
+    </p>
+    {% endblock %}
+    
+
+    <div id="contact" class="contact-section">
+        <h2>Contact Us</h2>
+        <form>
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
+</div>
+
+    
+</body>
+</html>

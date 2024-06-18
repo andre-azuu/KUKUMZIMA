@@ -1,0 +1,388 @@
+/* Whole document */
+* {
+  margin: 10px;
+}
+/* topbar */
+h1 {
+  font-family: "Orbitron", sans-serif;
+  font-style: normal;
+  font-optical-sizing: auto;
+  font-weight: 3px;
+  color: #333333;
+  padding: 10px;
+  text-align: center;
+}
+
+headerDefine {
+  font-family: "Orbitron", sans-serif;
+  font-size: 12px;
+  color: #ab2222;
+}
+
+div.profile-icon {
+  color: #d33737;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+h1#Define {
+  font-family: "Orbitron", sans-serif;
+  font-size: 19px;
+  color: #333333;
+}
+
+nav {
+  font-family: "Mali", cursive;
+  background: #ced4db;
+  color: #333333;
+  padding: 10px;
+  text-align: center;
+}
+nav a {
+  color: #333333;
+  margin: 2px;
+  text-decoration: none;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+}
+.navbar ul li a {
+  color: black;
+  text-decoration: none;
+  padding: 7px;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+.navbar ul li a:hover {
+  background-color: #9493934e;
+  border-radius: 4px;
+}
+
+footer {
+  text-align: center;
+  padding: 5px; /* Decrease padding to make it smaller */
+  background-color: #a1a102;
+  color: #fff;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  font-size: 14px; /* Adjust font size for readability */
+}
+
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 10px;
+  width: 100%;
+  background-color: #f4f4f4;
+}
+
+/* Farmers CSS */
+/* universal */
+
+/* homepage */
+header {
+  font-family: "Orbitron", sans-serif;
+  font-style: normal;
+  width: 100% auto;
+  font-weight: 3px;
+  background-color: #ced4db;
+  color: #b52a2a;
+  text-align: center;
+  border-radius: 7px;
+}
+
+.container#farms {
+  background-color: #ced4db;
+  border-radius: 9px;
+  padding: 10px;
+  height: 100%;
+  text-align: center;
+  width: 100% auto;
+}
+
+div#value {
+  background-color: aqua;
+  border-radius: 100%;
+  position: relative;
+}
+div#rating {
+  background-color: #ced4db;
+}
+
+/* Orders  */
+/* Add some padding inside the card container */
+.column1 {
+  float: initial;
+  width: 50%;
+  padding: 2px;
+  font-family: "Times New Roman", Times, serif;
+  position: relative;
+}
+.column2 {
+  font-family: "Times New Roman", Times, serif;
+  float: inline;
+  width: 40%;
+  padding: 2px;
+  position: relative;
+}
+
+.container#buildup {
+  padding: 10px;
+  margin: 2pt 2pt;
+  background-color: #dfe3e8;
+  border-radius: 7px;
+}
+
+.container#pendingOrders {
+  background-color: #dfe3e8;
+  border-radius: 7px;
+}
+table {
+  width: 100%;
+  margin: 10px;
+  text-align: left;
+}
+
+p#timestamp {
+  text-align: right;
+  font-size: 10px;
+  font-style: italic;
+  padding-left: 20px;
+}
+p#status {
+  border-style: solid;
+
+  text-align: center;
+
+  font-size: 10px;
+}
+
+button {
+  background-color: green;
+  color: black;
+  border-radius: 70%;
+}
+
+.btn1 {
+  background-color: green;
+  border-radius: 60%;
+  border: none;
+  color: black;
+  padding: 6px 6px;
+  text-align: center;
+  font-size: 11px;
+  margin: 2px 2px;
+  opacity: 0.9;
+  transition: 0.3s;
+  width: 70px;
+}
+
+.btn1:hover {
+  opacity: 1.7;
+}
+
+button#decline {
+  color: white;
+  border-radius: 70px;
+  background-color: #ab2222;
+}
+
+button#accept {
+  color: white;
+  border-radius: 70px;
+  background-color: green;
+}
+
+button#manageBtn {
+  color: white;
+  border-radius: 70px;
+  background-color: rgb(237, 154, 37);
+  margin: 10px;
+  padding: 6px;
+  text-align: center;
+  width: 200px;
+  height: 40px;
+  position: relative;
+}
+
+button#insightsBtn {
+  color: white;
+  border-radius: 70px;
+  background-color: rgb(237, 154, 37);
+  margin: 10px;
+  padding: 6px;
+  text-align: center;
+  width: 200px;
+  height: 40px;
+  position: relative;
+  left: 10%;
+}
+button#addFarmBtn {
+  color: white;
+  border-radius: 70px;
+  background-color: rgb(22, 107, 235);
+  padding: 6px;
+  text-align: center;
+  font-size: 17px;
+  width: 200px;
+  height: 40px;
+  position: relative;
+  left: 10%;
+}
+
+/* farm page */
+
+.zoom {
+  padding: 20px;
+  background-color: rgb(155, 212, 123);
+  transition: transform 0.6s; /* Animation */
+  width: 140px;
+  margin: auto;
+  border-radius: 90px;
+  text-align: center;
+  position: relative;
+  color: black;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.zoom:hover {
+  transform: scale(
+    1.1
+  ); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+.inventoryColumn {
+  float: initial;
+  width: 45%;
+  padding: 2px;
+  font-family: "Times New Roman", Times, serif;
+  background-color: #dfe3e8;
+  border-radius: 7px;
+  height: 100%;
+  margin: 2px;
+}
+
+.expenseColumn {
+  height: 100%;
+  float: initial;
+  width: 45%;
+  padding: 2px;
+  background-color: #dfe3e8;
+  font-family: "Times New Roman", Times, serif;
+  margin: 4px;
+  border-radius: 7px;
+  padding-left: 10px;
+}
+
+.container#Perfomance {
+  padding: 2px;
+  background-color: #dfe3e8;
+  font-family: "Times New Roman", Times, serif;
+  margin: 5px;
+  border-radius: 7px;
+}
+
+
+
+
+
+/* the modal */
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+.modal button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  background-color: #007BFF;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.modal button:hover {
+  background-color: #0056b3;
+}
+.modal button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #0056b3;
+}
+
+
+
+/* contact section  */
+.contact-section {
+  margin-top: 50px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.contact-section h2 {
+  margin-top: 0;
+}
+.contact-section form {
+  display: flex;
+  flex-direction: column;
+}
+.contact-section form input,
+.contact-section form textarea {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.contact-section form button {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007BFF;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.contact-section form button:hover {
+  background-color: #0056b3;
+}

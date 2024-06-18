@@ -1,0 +1,36 @@
+
+{% extends "myapp/base.html" %}
+{% block title %}Home - Kukumzima {% endblock %}
+
+
+{% block content %}
+
+                
+            
+    <!-- content area -->
+    <h2>Your farms</h2>
+    <div class="container" id="farms">
+        <table>
+            <tr>
+                <th><h3>Kisaju valley</h3></th>
+                <th><h3>Farm ID: F0012</h3></th>
+            </tr>
+            <tr>
+                <td>Number of hens: 7991</td>
+                <td>Location: Kajiado</td>
+            </tr>
+            <tr>
+                <td>Production Rate: 75%</td>
+                <td>Profit/Loss = 89,2991</td>
+            </tr>
+            <tr>
+                <td>Productivity</td>
+                <td>75%</td>
+            </tr>
+        </table>
+        <a href="{% url 'farm' %}">
+            <button type="button" id="insightsBtn">Farm Insights & Reports</button>
+        </a>
+    </div>
+    <button id="addFarmBtn">Add Farm</button>
+    {% endblock %}
