@@ -1,5 +1,8 @@
 from django.shortcuts import render
 
+def landing_page(request):
+    return render(request, 'landing.html')
+
 
 def home(request):
     return render(request, 'myapp/home.html')
@@ -16,3 +19,7 @@ def login(request):
 
 def signup(request):
     return render(request, 'myapp/signup.html')
+
+
+def landing(request):
+    return render(request, 'myapp/landing.html')

@@ -1,0 +1,136 @@
+
+{% extends "myapp1/base.html" %}
+{% block title %}Home - Kukumzima {% endblock %}
+
+
+{% block content %}
+<a href="{% url 'login1' %}">loginnnnnnnnnn</a>
+<a href="{% url 'signup1' %}">Sign Up</a>
+                
+<body>
+    <div class="container" id="farmerInfo"><style>
+        /* Basic reset for margin and padding */
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+        
+        body {
+          font-family: Arial, sans-serif;
+          line-height: 1.6;
+          background-color: #f0f0f0;
+          margin: 0;
+          padding: 20px;
+        }
+        
+        .container {
+          max-width: 800px;
+          margin: 20px auto;
+          padding: 20px;
+          background-color: #fff;
+          border-radius: 8px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        header {
+          text-align: center;
+          margin-bottom: 20px;
+        }
+        
+        header h1 {
+          font-size: 2em;
+          margin-bottom: 5px;
+        }
+        
+        header small {
+          font-size: 0.6em;
+          color: #888;
+        }
+        
+        nav {
+          text-align: center;
+          margin-bottom: 20px;
+        }
+        
+        .farmerslist {
+          display: grid;
+          gap: 20px;
+        }
+        
+        .farmer-card {
+          background-color: #dbdbdb;
+          padding: 15px;
+          border-radius: 8px;
+          box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+        
+        .farmer-info {
+          flex: 1;
+        }
+        
+        .farmer-info p {
+          margin-bottom: 5px;
+        }
+        
+        button {
+          padding: 10px 20px;
+          background-color: #4CAF50;
+          color: white;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+        }
+        
+        button:hover {
+          background-color: #45a049;
+        }
+      </style> 
+        <main>
+            <section class="farmerslist">
+                <h2>Available Farmers</h2>
+                <div class="farmer-card">
+                    <div class="farmer-info">
+                        <p><strong>Farmer:</strong> Edward Kariuki</p>
+                        <p><strong>Price:</strong> 620 Ksh</p>
+                        <p><strong>Location:</strong> Kisumu</p>
+                        <p><strong>Stock:</strong> 1500</p>
+                    </div>
+                    <a href="{% url 'order' %}">
+                      <button>
+
+                        Make Order
+                      </button>
+                    </a>
+                </div>
+                <div class="farmer-card">
+                    <div class="farmer-info">
+                        <p><strong>Farmer:</strong> Alice Mwangi</p>
+                        <p><strong>Price:</strong> 650 Ksh</p>
+                        <p><strong>Location:</strong> Nairobi</p>
+                        <p><strong>Stock:</strong> 1200</p>
+                    </div>
+                    <a href="{% url 'order' %}">
+                      <button>
+
+                        Make Order
+                      </button>
+                    </a>
+                </div>
+                <div class="farmer-card">
+                    <div class="farmer-info">
+                        <p><strong>Farmer:</strong> Samuel Kariuki</p>
+                        <p><strong>Price:</strong> 600 Ksh</p>
+                        <p><strong>Location:</strong> Nakuru</p>
+                        <p><strong>Stock:</strong> 1700</p>
+                    </div>
+                    <button>ORDER</button>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+    {% endblock %}

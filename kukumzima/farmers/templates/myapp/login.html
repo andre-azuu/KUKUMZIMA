@@ -7,7 +7,7 @@
     
 
     <div class="login-container">
-        <h2>Login<small>farmer</small></h2>
+        <h2>Login</h2>
         <form action="/login" method="post">
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" required>
@@ -18,6 +18,8 @@
             <input type="submit" value="Login">
         </form>
         <p>Don't have an account ? <a href="{% url 'signup' %}">Sign up</a></p>
+        <p>Browse as<a href="{% url 'home' %}">guest</a></p>
+      
     </div>
 </body>
 {% endblock %}

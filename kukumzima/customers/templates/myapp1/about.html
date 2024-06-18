@@ -1,0 +1,40 @@
+{% extends "myapp1/base.html" %}
+
+{% block title %}About Us - Kukumzima{% endblock %}
+
+{% block content %}
+<!-- content -->
+    <div class="container">
+        <h2>About Us</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>
+                    At Kuku Mzima, we revolutionize the way you purchase fresh produce directly from farmers. Our consumer module is designed with you in mind, providing an intuitive and seamless experience. From the comfort of your home, you can effortlessly browse through a diverse list of farmers, each offering detailed profiles that include location, pricing, and stock availability. Once you find the perfect produce, placing an order is straightforward—simply select the quantity you need and confirm your location. Our secure M-Pesa payment interface ensures that your transactions are safe and swift, giving you peace of mind with every purchase. Additionally, our platform allows you to view past orders, making it easy to keep track of your purchases and reorder your favorites. With Kuku Mzima, connecting with local farmers has never been easier, ensuring you always have access to the freshest produce while supporting your community.
+                </p>
+            </div>
+            <p>Want to buy eggs?
+                <a href="{% url 'home1' %} "> Make order...</a>
+            </p>
+            <div class="about-image">
+                <img src="https://via.placeholder.com/600x400" alt="Poultry farming">
+            </div>
+        </div>
+    </div>
+
+    {% endblock %}
+    
+
+    <div id="contact" class="contact-section">
+        <h2>Contact Us</h2>
+        <form>
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
+</div>
+
+    
+</body>
+</html>

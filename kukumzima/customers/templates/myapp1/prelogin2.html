@@ -18,16 +18,25 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Mali:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'styles.css' %}">
-</head>
-<body>
     <header>
-        <a href="{% url 'home' %}" >
+        <nav class="navbar" id="topBar">
+            <h1>Welcome to Kukumzima</h1>
+            
+            <ul>
+                <li><a href="{% url 'home1' %}">Home</a></li>
+                <li><a href="{%url 'about' %}"> About</a></li>
+                
+                                </ul>
+            </nav>
+        </header>
+        
 
-            <h1 >KUKUMZIMA <small>Farmer</small>
-            </h1>
-           
-        </a>
-    </header>
+
+
+</head>
+{% block content %}
+<body>
+   
     <style>
         /* Inline styles for demonstration purposes */
         body {
@@ -39,51 +48,11 @@
             height: 100vh;
             margin: 0;
         }
-        .login-container {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            width: 300px;
-        }
-        .login-container h2 {
-            text-align: center;
-            color: #333;
-        }
-        .login-container form {
-            display: flex;
-            flex-direction: column;
-        }
-        .login-container form label {
-            margin-bottom: 8px;
-            font-weight: bold;
-        }
-        .login-container form input[type="text"],
-        .login-container form input[type="password"] {
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 16px;
-        }
-        .login-container form input[type="submit"] {
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            padding: 10px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: background-color 0.3s;
-        }
-        .login-container form input[type="submit"]:hover {
-            background-color: #0056b3;
-        }
+        
     </style>
 
     
 
-    {% block content %}
     {% endblock %}
 
     <footer>

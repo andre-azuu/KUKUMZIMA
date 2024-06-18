@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    {% load static %}
+    <!-- bootstrap -->
+    <link 
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" 
+    rel="stylesheet">
+    
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mali:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+    <header>
+        <a href="{% url 'home' %}" >
+            
+            <h1 >KUKUMZIMA <small>Consumer</small>
+            </h1>
+            
+        </a>
+    </header>
+   
+
+
+{% block content %}
+
+    {% endblock %}
+
+    <footer>
+        <a href="{% url 'about' %}">Contact us (form)</a>
+        <p>&copy; 2024 Kukumzima. All rights reserved.</p>
+    </footer>
+   
+
+
+    <script src="{% static 'script.js' %}"></script>
+</body>
+</html>

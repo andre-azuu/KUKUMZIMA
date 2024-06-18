@@ -1,0 +1,56 @@
+
+{% extends "myapp1/prelogin2.html" %}
+{% block title %}Home - Kukumzima {% endblock %}
+
+
+{% block content %}
+  <style>
+        body {
+            font-family: 'Mali', cursive;
+            background-color: #f8f9fa;
+            text-align: center;
+            padding: 50px;
+        }
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            margin-bottom: 30px;
+        }
+        .module-link {
+            display: inline-block;
+            width: 45%;
+            margin: 10px;
+            text-decoration: none;
+        }
+        .module-link img {
+            width: 100%;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+        .module-link img:hover {
+            transform: scale(1.05);
+        }
+        .module-link h2 {
+            margin-top: 20px;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <a href="/consumers/home" class="module-link">
+            <img src="consumer-image.jpg" alt="Consumer Module">
+            <h2>Consumer Module</h2>
+        </a>
+        <a href="/farmers/home" class="module-link">
+            <img src="farmer-image.jpg" alt="Farmer Module">
+            <h2>Farmer Module</h2>
+        </a>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+{% endblock %}

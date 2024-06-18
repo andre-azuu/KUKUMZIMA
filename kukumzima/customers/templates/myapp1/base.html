@@ -19,17 +19,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Mali:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'styles.css' %}">
 </head>
-<body>
-    <header>
-        <nav class="navbar" id="topBar">
-            <h1>KUKUMZIMA
-                <headerDefine>(Farmers)</headerDefine>
-            </h1>
-            <ul>
-                <li><a href="{% url 'home' %}">Home</a></li>
-                <li><a href="{% url 'about' %}">About</a></li>
-                <li><a href="{% url 'farm' %}">Insights & Reports</a></li>
-                <li>
+<header>
+    <nav class="navbar" id="topBar">
+        <h1>KUKUMZIMA
+            <headerDefine>(Consumer)</headerDefine>
+        </h1>
+        <ul>
+            <li><a href="{% url 'home1' %}">Home</a></li>
+            <li><a href="{%url 'about1' %}"> About</a></li>
+            <li><a href="{%url 'orderHistory' %}"> Order History</a></li>
+
+            
+            <li>
                     <!-- Trigger/Open The Modal -->
                     <a id="profileModalBtn">Profile
                         <i class="bi bi-person-circle"> 
@@ -43,24 +44,26 @@
             </ul>
         </nav>
     </header>
-
+    
     <!-- Modal Template -->
     <div id="profileModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
-            <h2><p>Role: <strong>Farmer</strong></p></h2>
+            <h2><p>Role: <strong>Consumer</strong></p></h2>
             <p>Username: <strong>user123</strong></p>
             <p>Email: <strong>user@example.com</strong></p>
-            <a href="{% url 'landing' %}">
-
+            
+            <a href="{% url 'landing1' %}">
+                
                 <button>Log out</button>
             </a>
             <button>Switch accounts</button>
             <button>Change password</button>
         </div>
     </div>
-
+    
     {% block content %}
+    
     {% endblock %}
 
     <footer>
