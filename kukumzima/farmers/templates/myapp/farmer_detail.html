@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Farmer Detail</title>
+</head>
+<body>
+    <h1>{{ farmer.dbfarmerUsername }}</h1>
+    <p>Phone Number: {{ farmer.dbfarmerPhonenum }}</p>
+    <p>Email: {{ farmer.dbfarmerEmail }}</p>
+    <p>Address: {{ farmer.dbfarmerAddress }}</p>
+    <a href="{% url 'farmer_list' %}">Back to list</a>
+</body>
+</html>

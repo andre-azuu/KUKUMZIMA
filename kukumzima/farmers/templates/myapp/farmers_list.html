@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Farmer List</title>
+</head>
+<body>
+    <h1>Farmer List</h1>
+    <a href="{% url 'farmer_create' %}">Create New Farmer</a>
+    <ul>
+        {% for farmer in farmers %}
+            <li>
+                <a href="{% url 'farmer_detail' farmer.pk %}">{{ farmer.dbfarmerUsername }}</a> - 
+                <a href="{% url 'farmer_update' farmer.pk %}">Edit</a> - 
+                <a href="{% url 'farmer_delete' farmer.pk %}">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
