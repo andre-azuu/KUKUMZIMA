@@ -1,12 +1,11 @@
 
 {% extends "myapp1/base.html" %}
-{% block title %}Home - Kukumzima {% endblock %}
+{% block title %}Make Order - Consumer {% endblock %}
 
 
 {% block content %}
-<a href="{% url 'login1' %}">loginnnnnnnnnn</a>
-<a href="{% url 'signup1' %}">Sign Up</a>
-                
+<h2>Available Farmers</h2>  
+{% for buyer in buyers %}
 <body>
     <div class="container" id="farmerInfo"><style>
         /* Basic reset for margin and padding */
@@ -88,14 +87,14 @@
         button:hover {
           background-color: #45a049;
         }
-      </style> 
+        </style> 
         <main>
             <section class="farmerslist">
-                <h2>Available Farmers</h2>
                 <div class="farmer-card">
                     <div class="farmer-info">
                       
-                        <p><strong>Farmer:</strong> Edward Kariuki</p>
+                        <p><strong>Farmer:</strong> {{ buyer.buyerUsername }}</p>
+        
                         <p><strong>Price:</strong> 620 Ksh</p>
                         <p><strong>Location:</strong> Kisumu</p>
                         <p><strong>Stock:</strong> 1500</p>
@@ -107,31 +106,11 @@
                       </button>
                     </a>
                 </div>
-                <div class="farmer-card">
-                    <div class="farmer-info">
-                        <p><strong>Farmer:</strong> Alice Mwangi</p>
-                        <p><strong>Price:</strong> 650 Ksh</p>
-                        <p><strong>Location:</strong> Nairobi</p>
-                        <p><strong>Stock:</strong> 1200</p>
-                    </div>
-                    <a href="{% url 'order' %}">
-                      <button>
-
-                        Make Order
-                      </button>
-                    </a>
-                </div>
-                <div class="farmer-card">
-                    <div class="farmer-info">
-                        <p><strong>Farmer:</strong> Samuel Kariuki</p>
-                        <p><strong>Price:</strong> 600 Ksh</p>
-                        <p><strong>Location:</strong> Nakuru</p>
-                        <p><strong>Stock:</strong> 1700</p>
-                    </div>
-                    <button>ORDER</button>
-                </div>
-            </section>
+                            </section>
         </main>
     </div>
 </body>
-    {% endblock %}
+
+{% endfor %}
+
+{% endblock %}

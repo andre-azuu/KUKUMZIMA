@@ -1,8 +1,19 @@
 from django.shortcuts import render
+from .models import buyerdb,Order
 
 # Create your views here.
 from django.http import HttpResponse
 
+
+
+
+def buyer_list(request):
+    buyers = buyerdb.objects.all()
+    return render(request, 'myapp1/buyer_list.html', {'buyers': buyers})
+
+def order(request):
+    orders = Order.objects.all()
+    return render(request, 'myapp1/order.html', {'orders': orders})
 
 
 def home1(request):
@@ -11,11 +22,9 @@ def home1(request):
 def about1(request):
     return render(request, 'myapp1/about.html')
 
-def order(request):
-    return render(request, 'myapp1/order.html')
-
 def orderHistory(request):
-    return render(request, 'myapp1/orderHistory.html')
+    orders = Order.objects.all()
+    return render(request, 'myapp1/orderHistory.html', {'orders': orders})
 
 def login1(request):
     return render(request, 'myapp1/login.html')
