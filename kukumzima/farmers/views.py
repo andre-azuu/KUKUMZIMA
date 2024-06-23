@@ -72,11 +72,11 @@ def farmer_delete(request, pk):
 # Farm Views
 def farm_list(request):
     farms = Farm.objects.all()
-    return render(request, 'farm_list.html', {'farms': farms})
+    return render(request, 'myapp/farm_list.html', {'farms': farms})
 
 def farm_detail(request, pk):
     farm = get_object_or_404(Farm, pk=pk)
-    return render(request, 'farm_detail.html', {'farm': farm})
+    return render(request, 'myapp/farm_detail.html', {'farm': farm})
 
 def farm_create(request):
     if request.method == 'POST':
@@ -86,7 +86,7 @@ def farm_create(request):
             return redirect('farm_list')
     else:
         form = FarmForm()
-    return render(request, 'farm_form.html', {'form': form})
+    return render(request, 'myapp/farm_form.html', {'form': form})
 
 def farm_update(request, pk):
     farm = get_object_or_404(Farm, pk=pk)
@@ -97,11 +97,11 @@ def farm_update(request, pk):
             return redirect('farm_list')
     else:
         form = FarmForm(instance=farm)
-    return render(request, 'farm_form.html', {'form': form})
+    return render(request, 'myapp/farm_form.html', {'form': form})
 
 def farm_delete(request, pk):
     farm = get_object_or_404(Farm, pk=pk)
     if request.method == 'POST':
         farm.delete()
         return redirect('farm_list')
-    return render(request, 'farm_confirm_delete.html', {'farm': farm})
+    return render(request, 'myapp/farm_confirm_delete.html', {'farm': farm})

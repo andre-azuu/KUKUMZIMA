@@ -1,0 +1,23 @@
+{% extends "myapp/base.html" %}
+
+{% block title %}Farm List - Kukumzima{% endblock %}
+
+{% block content %}
+    
+</head>
+<body>
+    <h1>Farm List</h1>
+    <a href="{% url 'farm_create' %}">Create New Farm</a>
+    <ul>
+        {% for farm in farms %}
+            <li>
+                <a href="{% url 'farm_detail' farm.pk %}">{{ farm.farmlocation }}</a> - 
+                <a href="{% url 'farm_update' farm.pk %}">Edit</a> - 
+                <a href="{% url 'farm_delete' farm.pk %}">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+
+{% endblock %}
