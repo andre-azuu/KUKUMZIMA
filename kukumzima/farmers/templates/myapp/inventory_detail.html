@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Inventory Detail</title>
+</head>
+<body>
+    <h1>{{ inventory.item }}</h1>
+    <p>Quantity: {{ inventory.quantityOfEggs }}</p>
+    <p>Unit Price: {{ inventory.unitPrice }}</p>
+    <p>Number of Hens: {{ inventory.numberOfHens }}</p>
+    <a href="{% url 'inventory_list' %}">Back to list</a>
+</body>
+</html>

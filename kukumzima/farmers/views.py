@@ -105,3 +105,43 @@ def farm_delete(request, pk):
         farm.delete()
         return redirect('farm_list')
     return render(request, 'myapp/farm_confirm_delete.html', {'farm': farm})
+
+
+# Inventory
+def inventory_list(request):
+    inventories = Inventory.objects.all()
+    return render(request, 'myapp/inventory_list.html', {'inventories': inventories})
+
+def inventory_detail(request, pk):
+    inventory = get_object_or_404(Inventory, pk=pk)
+    return render(request, 'myapp/inventory_detail.html', {'inventory': inventory})
+
+def inventory_update(request, pk):
+    inventory = get_object_or_404(Inventory, pk=pk)
+    if request.method == 'POST':
+        form = InventoryForm(request.POST, instance=inventory)
+        if form.is_valid():
+            form.save()
+            return redirect('inventory_list')
+    else:
+        form = InventoryForm(instance=inventory)
+    return render(request, 'myapp/inventory_form.html', {'form': form})
+
+def inventory_create(request):
+    if request.method == 'POST':
+        form = InventoryForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('inventory_list')
+    else:
+        form = InventoryForm()
+    return render(request, 'myapp/inventory_form.html', {'form': form})
+
+
+
+def inventory_delete(request, pk):
+    inventory = get_object_or_404(Inventory, pk=pk)
+    if request.method == 'POST':
+        inventory.delete()
+        return redirect('inventory_list')
+    return render(request, 'myapp/inventory_confirm_delete.html', {'inventory': inventory})
