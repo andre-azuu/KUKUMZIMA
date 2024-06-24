@@ -5,6 +5,7 @@ from . import views
 from .views import farmer_list, farmer_detail, farmer_create, farmer_update, farmer_delete
 from .views import farm_list, farm_detail, farm_create, farm_update, farm_delete
 from .views import inventory_list, inventory_detail, inventory_update,inventory_create,inventory_delete
+from .views import transaction_list, transaction_detail, transaction_create, transaction_update, transaction_delete
 
 
 urlpatterns = [
@@ -40,4 +41,14 @@ urlpatterns = [
 
     path('inventory/create/', inventory_create, name='inventory_create'),
     path('inventory/<int:pk>/delete/', inventory_delete, name='inventory_delete'),
-]
+
+
+# transactions
+    path('transactions/', transaction_list, name='transaction_list'),
+    path('transactions/<int:pk>/', transaction_detail, name='transaction_detail'),
+    path('transactions/create/', transaction_create, name='transaction_create'),
+    path('transactions/<int:pk>/update/', transaction_update, name='transaction_update'),
+    path('transactions/<int:pk>/delete/', transaction_delete, name='transaction_delete'),
+    ]
+
+
