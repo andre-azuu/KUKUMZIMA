@@ -7,30 +7,41 @@
     <a href="{% url 'inventory_create' %}">Add New Inventory</a>
     <ul>
         {% for inventory in inventories %}
-            <li>
-                <a href=""><strong>Farm ID:</strong> {{ farm.id }}</a> - 
-                <br>
-                <a href="{% url 'inventory_detail' inventory.pk %}">item : {{ inventory.item }}</a>
-                <br>
-                <a href="{% url 'inventory_update' inventory.pk %}">Edit</a> - {{ inventory.item }}
-                <br>
-                <a href="{% url 'inventory_delete' inventory.pk %}">Delete</a>
+            
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Particulars</th>
+                            <th>Farm ID: xxx</th>
+                           
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Eggs</td>
+                            <td>300</td>
+                            <td>  <a href="{% url 'inventory_update' inventory.pk %}">Edit {{ inventory.item }}</td>
+    
+    
+                        </tr>
+                    </tbody></table>
+                    <a href="{% url 'inventory_delete' inventory.pk %}">Delete itemz</a>
+<table>
 
-            </li>
-            {% endfor %}
-            <table>
-                <thead>
+</table>
+            </ul>
+           
+            
                     <tr>
-                        <th>Name</th>
-                        <th>Particulars</th>
-                       
+                        <td>Fugo 80Kg</td>
+                        <td>82 Bags</td>
+                        
                     </tr>
-                </thead>
-                <tbody>
                     <tr>
-                        <td>Eggs</td>
-                        <td>300</td>
-
+                        <td>Suguna </td>
+                        <td>72 Bags</td>
+                        
                     </tr>
                     
                     
@@ -38,5 +49,6 @@
             </table>
     </ul>
 </body>
+{% endfor %}
 {% endblock %}
 </html>

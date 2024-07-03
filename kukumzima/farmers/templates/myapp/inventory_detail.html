@@ -3,11 +3,52 @@
  {% block content %}
 
 <body>
-    <h1>{{ inventory.item }}</h1>
-    <p>Quantity: {{ inventory.quantityOfEggs }}</p>
-    <p>Unit Price: {{ inventory.unitPrice }}</p>
-    <p>Number of Hens: {{ inventory.numberOfHens }}</p>
-    <a href="{% url 'inventory_update' inventory.pk %}">Back to farm</a>
+    <h1>Inventory List</h1>
+    <a href="{% url 'inventory_create' %}">Add New Item</a>
+    <ul>
+        {% for inventory in inventories %}
+        
+        
+            <ul>
+              
+                <p>Unit Price: {{ inventory.unitPrice }}</p>
+              
+                <a href="{% url 'inventory_update' inventory.pk %}">Edit inventory</a> 
+                <br>
+                
+
+            </ul>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Farm ID: xxxx</th>
+                       
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Number of hens</td>
+                        
+                        <td>{{ inventory.numberOfHens }}</td>
+
+                    </tr>
+                    <tr>
+                        <td>Eggs</td>
+                        <td>{{ inventory.quantityOfEggs }}</td>
+
+                    </tr>
+                    
+                    
+                </tbody>
+            </table>
+    </ul>
+    
+    {% endfor %}
 </body>
 </html>
+<a href="{% url 'inventory_update' inventory.pk %}">Back to farm</a>
+<a href="{% url 'inventory_delete' inventory.pk %}">Delete this nventory</a>
 {% endblock %}
+
+
