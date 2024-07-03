@@ -1,15 +1,72 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Create/Edit Farm</title>
+{% extends "myapp/base.html" %}
+
+{% block title %}Farm - Kukumzima {% endblock %}
+
+
+{% block content %}
+
+
+<style>
+    body {
+        background-image: url("https://your-image-url.com/image.jpg"); /* Replace with your image URL */
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        color: #fff; /* White text color for better readability */
+    }
+    .container {
+        margin-top: 20px;
+        background-color: rgba(0, 0, 0, 0.8); /* Dark and slightly transparent background */
+        padding: 20px;
+        border-radius: 10px;
+        color: #fff; /* White text color */
+    }
+    form {
+        margin-top: 20px;
+    }
+    form button[type="submit"] {
+        background-color: #007bff; /* Blue button */
+        border-color: #007bff;
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    form button[type="submit"]:hover {
+        background-color: #0056b3; /* Darker blue on hover */
+        border-color: #0056b3;
+    }
+    a {
+        color: #fff; /* White link color */
+        margin-left: 10px;
+        text-decoration: none;
+    }
+    a:hover {
+        text-decoration: underline;
+    }
+</style>
 </head>
 <body>
-    <h1>{% if form.instance.pk %}Edit{% else %}Create{% endif %} Farm</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">{% if form.instance.pk %}Update{% else %}Create{% endif %}</button>
-    </form>
-    <a href="{% url 'farm_list' %}">Cancel</a>
+    <div class="container">
+        <h1 style="color: black;">{% if form.instance.pk %}Edit{% else %}Create{% endif %} Farm</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">{% if form.instance.pk %}Update{% else %}Create{% endif %}</button>
+            <button>
+
+                <a href="{% url 'farm_list' %}">Cancel</a>
+            </button>
+        </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
+</html>
+
+
+{% endblock %}
+
 </html>

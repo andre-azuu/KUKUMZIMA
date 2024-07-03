@@ -11,7 +11,7 @@ from .views import transaction_list, transaction_detail, transaction_create, tra
 urlpatterns = [
 
     path("", views.landing, name="landing"),
-    path("home", views.home, name="home"),
+    # path("home", views.home, name="home"),
     path('about/', views.about, name='about'),
     path('farm/', views.farm, name='farm'),
     path('login/', views.login, name='login'),
@@ -26,11 +26,13 @@ urlpatterns = [
     path('farmers/<int:pk>/delete/', views.farmer_delete, name='farmer_delete'),
 
 # farms
-    path('farms/', farm_list, name='farm_list'),
-    path('farms/<int:pk>/', farm_detail, name='farm_detail'),
+    path('farms/', views.farm_list, name='farm_list'),
+    path('farms/<int:pk>/', views.farm_detail, name='farm_detail'),
     path('farms/create/', farm_create, name='farm_create'),
     path('farms/<int:pk>/update/', farm_update, name='farm_update'),
     path('farms/<int:pk>/delete/', farm_delete, name='farm_delete'),
+
+    path('farm/<int:pk>/edit/', views.edit_farm, name='edit_farm'),
 
 
 # inventory
@@ -49,6 +51,13 @@ urlpatterns = [
     path('transactions/create/', transaction_create, name='transaction_create'),
     path('transactions/<int:pk>/update/', transaction_update, name='transaction_update'),
     path('transactions/<int:pk>/delete/', transaction_delete, name='transaction_delete'),
+
+
+# orders
+   path('order', views.order_detail, name='order_detail'),
+    path('order/<int:order_id>/accept/', views.accept_order, name='accept_order'),
+    path('order/<int:order_id>/decline/', views.decline_order, name='decline_order'),
+   
     ]
 
 

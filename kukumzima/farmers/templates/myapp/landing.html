@@ -45,12 +45,13 @@
 <body>
     <h1>Welcome to Kuku Mzima</h1>
     <div class="container">
-        <a href="/consumers/home" class="module-link">
-            <img src="consumer-image.jpg" alt="Consumer Module">
+        <a href="{%url 'home1' %}" class="module-link">
+            <img src="https://rafterwranch.net/wp-content/uploads/2018/08/eggs-grocery-store.jpg" alt="Consumer Module">
             <h2>Consumer Module</h2>
         </a>
-        <a href="/farmers/home" class="module-link">
-            <img src="farmer-image.jpg" alt="Farmer Module">
+        <a href="{% url 'farm_list' %}" class="module-link">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvLlHcWiwsH5lrsmXWNBhKsAxlNscJDErwoYQ_IbWjDFE5JUsvhvOf4ZYpa47vYBgxags&usqp=CAU" alt="Farmer Module">
+        
             <h2>Farmer Module</h2>
         </a>
     </div>

@@ -1,13 +1,13 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Inventory Detail</title>
-</head>
+{% extends "myapp/base.html" %} {% load static %} 
+{% block title %} Inventory - Kukumzima {% endblock %}
+ {% block content %}
+
 <body>
     <h1>{{ inventory.item }}</h1>
     <p>Quantity: {{ inventory.quantityOfEggs }}</p>
     <p>Unit Price: {{ inventory.unitPrice }}</p>
     <p>Number of Hens: {{ inventory.numberOfHens }}</p>
-    <a href="{% url 'inventory_list' %}">Back to list</a>
+    <a href="{% url 'inventory_update' inventory.pk %}">Back to farm</a>
 </body>
 </html>
+{% endblock %}

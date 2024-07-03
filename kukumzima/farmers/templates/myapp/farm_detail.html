@@ -1,11 +1,13 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Farm Detail</title>
-</head>
+{% extends "myapp/base.html" %}
+
+{% block title %}Farm details - Kukumzima{% endblock %}
+
+{% block content %}
+    
 <body>
     <h1>Farm Location: {{ farm.farmlocation }}</h1>
     <p>Farmer: {{ farm.farmer_detail.dbfarmerUsername }}</p>
     <a href="{% url 'farm_list' %}">Back to list</a>
 </body>
+{% endblock %}
 </html>

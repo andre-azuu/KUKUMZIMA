@@ -1,178 +1,312 @@
-{% extends "myapp/base.html" %}
-{% block title %} Insights & Reports - Kukumzima {% endblock %}
+{% extends "myapp/base.html" %} {% load static %} 
+{% block title %} Insights &Reports - Kukumzima {% endblock %}
+ {% block content %}
+<style>
+  /* Custom button and container styling */
+  .btn-orange {
+    background-color: #ff9800; /* Orange color */
+    border-color: #ff9800;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+  }
 
+  .btn-orange:hover {
+    background-color: #e68900; /* Darker orange on hover */
+    border-color: #e68900;
+  }
 
-{% block content %}
-            <!-- content  -->
+  /* Container and section styling */
+  .container {
+    margin-top: 20px;
+    background-color: rgba(
+      0,
+      0,
+      0,
+      0.5
+    ); /* Darker semi-transparent background */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Slightly darker shadow */
+    color: rgb(158, 111, 50); /* White text */
+  }
 
-    <body>
-        <div class="container" id="farms">
-            <div class="zoom">
-                Overall rating: 70%
-            </div>
-            <h2>Tatu city 30 acres</h2>
-            <p>
-            Chicken population  : 600
-            Farm ID: F0093
-            </p>
+  .zoom {
+    background-color: #ffc107; /* Yellow background for zoom */
+    color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
 
-        </div>
+  .section-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
 
-        <div class="row">
-            <div class="inventoryColumn">
-                <h2>Inventory</h2>
-                <table>
-                    <tr>
-                        <th>Requirement:</th>
-                        <th>Quantity</th>
-                    </tr>
-                    <tr>
-                        <td>Feeds</td>
-                        <td>300 Bags</td>
-                    </tr>
-                    <tr>
-                        <td>Eggs </td>
-                        <td>300 Trays</td>
-                    </tr>
-                </table>
-                <button href="#" id="manageBtn">
-                    Manage Inventory
-                </button>
-                
+  .table-bordered {
+    border: 1px solid #ccc;
+    width: 100%;
+    margin-top: 20px;
+    background-color: rgba(
+      255,
+      255,
+      255,
+      0.1
+    ); /* Lighter semi-transparent background */
+  }
 
-            </div>
-            <div class="expenseColumn">
-                <h2>Expenses: </h2>
-                <table>
-                    <tr>
-                        <th>Requirements:</th>
-                        <th>Cost:</th>
-                    </tr>
-                    <tr>
-                        <td>Feeds</td>
-                        <td>30000</td>
-                    </tr>
-                    <tr>
-                        <td>Water</td>
-                        <td>3223</td>
-                    </tr>
-                    <tr>
-                        <td>Salaries & Wages</td>
-                        <td>23242</td>
+  .table-bordered th,
+  .table-bordered td {
+    padding: 10px;
+    text-align: center;
+  }
 
-                    </tr>
-                    <tr>
-                        <td>Marketing</td>
-                        <td>23424</td>
-                    </tr>
-                    <tr>
-                        <td>Transport</td>
-                        <td>23423</td>
-                    </tr>
-                </table>
-                <button href="#" id="manageBtn">
-                    Manage Expenses
-                </button>
-                
-            </div>
+  .table-bordered th {
+    background-color: #007bff; /* Blue header background */
+    color: white;
+  }
 
-            <div class="container" id="Perfomance">
-                <h2>Perfomance analysis:</h2>
-                <table>
-                    <tr>
-                        <td>Production rate:</td>
-                        
-                        <td>70%</td>
-                        </tr>
-                        <tr>
-                            <td>
-                            Average trays per day:
-                            
-                            </td>
-                            <td>
-                                39 
-                                
-                                </td>
-                                </tr><tr>
-                                    <td>
-                            Overall efficiency: 
-                            
-                            </td>
-                            <td>
-                                75% 
-                                
-                                </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                            profit/Loss: 
-                            
-                            </td>
-                            <td>
-                                8329
-                                
-                                </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        Total sales: 
-                                        
-                                        </td>
-                                        <td>
-                                            
-                                            32879
-                                            </td>
-                                            </tr><tr>
-                                                <td>
-                                                    Selling price:
-                                                    
-                                                    </td>
-                                                    <td>
-                                                        
-                                420
-                                </td>
-                                </tr><tr>
-                                    <td>
-                                        Total revenue:
-                                        
-                                        </td>
-                                        <td>
-                                            
-                                            29382
-                                            </td>
-                                            </tr><tr>
-                                                <td>
-                            total expenses: 
-                            
-                            </td>
-                            <td>
-                                
-                                79712
-                            </td>
-                    </tr>
+  .table-bordered td {
+    background-color: rgba(255, 255, 255, 0.3); /* Light gray cells */
+  }
+</style>
 
+<div class="container">
+  <div class="zoom">Overall rating: 70%</div>
+  <h2 class="section-title">{{ farm.farmlocation }}</h2>
+  <p>
+    <strong>Chicken population:</strong>{{ farm.numberOfHens }}<br />
+    <strong>Farm ID:</strong> {{ farm.id }}
 
-                </table>
-                    
-                   
-                <button href="#" id="manageBtn">
-                    Generate report
-                </button>
-                    
+    <strong>Rate (%)</strong>
+    <strong>{{ farm.productionRate }}</strong>
+    <strong>Profit/Loss</strong>
+    <strong>{{farm.profitLoss}}</strong>
+    <strong>Productivity (%)</strong>
+    <strong>{{ farm.productivity }}</strong>
+  </p>
 
-                </p>
+  <!-- Button to open the modal -->
+  <button class="btn btn-orange" id="openModalBtn">Edit Farm Details</button>
 
-            </div>
+  <!-- The Modal -->
+  <div id="editFarmModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <div class="form-container mx-auto col-md-6">
+        <h2>Edit Farm Details</h2>
+        <form
+          method="post"
+          id="editFarmForm"
+          action="{% url 'edit_farm' farm.pk %}"
+        >
+          {% csrf_token %}
+          <div class="form-group">
+            <label for="farmlocation">Farm Location</label>
+            <input
+              type="text"
+              class="form-control"
+              id="farmlocation"
+              name="farmlocation"
+              value="{{ farm.farmlocation }}"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="numberOfHens">Number of Hens</label>
+            <input
+              type="number"
+              class="form-control"
+              id="numberOfHens"
+              name="numberOfHens"
+              value="{{ farm.numberOfHens }}"
+              required
+            />
+          </div>
 
-        </div>
-        
-            </body>
+          <button type="submit" class="btn btn-orange">Save Changes</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 
-        {% endblock %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-5">
+      <h2 class="section-title">Inventory</h2>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Requirement</th>
+            <th>Quantity</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Feeds</td>
+            <td>300 Bags</td>
+          </tr>
+          <tr>
+            <td>Eggs</td>
+            <td>300 Trays</td>
+          </tr>
+        </tbody>
+      </table>
+      <a href="{% url 'inventory_list' %}" class="btn btn-orange"
+        >Manage Inventory</a
+      >
+    </div>
+    <div class="col-md-5">
+        <table class="table table-bordered" id="expenses-table">
+            <thead>
+                <tr>
+                    <th>Requirement</th>
+                    <th>Cost</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Feeds</td>
+                    <td contenteditable="false" id="feeds-cost">30000</td>
+                </tr>
+                <tr>
+                    <td>Water</td>
+                    <td contenteditable="false" id="water-cost">3223</td>
+                </tr>
+                <tr>
+                    <td>Salaries & Wages</td>
+                    <td contenteditable="false" id="salaries-cost">23242</td>
+                </tr>
+                <tr>
+                    <td>Marketing</td>
+                    <td contenteditable="false" id="marketing-cost">23424</td>
+                </tr>
+                <tr>
+                    <td>Transport</td>
+                    <td contenteditable="false" id="transport-cost">23423</td>
+                </tr>
+                <tr>
+                    <td><strong>Total expenses:</strong></td>
+                    <td id="total-expenses"></td>
+                </tr>
+            </tbody>
+        </table>
+    
+        <button class="btn btn-orange" id="edit-expenses-btn" onclick="toggleEdit()">Edit Expenses</button>
+    </div>
+    
+  </div>
+</div>
 
+<div class="container">
+  <h2 class="section-title">Performance Analysis</h2>
+  <table class="table table-bordered">
+    <tbody>
+      <tr>
+        <td>Production rate</td>
+        <td>70%</td>
+      </tr>
+      <tr>
+        <td>Average trays per day</td>
+        <td>39</td>
+      </tr>
+      <tr>
+        <td>Overall efficiency</td>
+        <td>75%</td>
+      </tr>
+      <tr>
+        <td>Profit/Loss</td>
+        <td>8,329</td>
+      </tr>
+      <tr>
+        <td>Total sales</td>
+        <td>32,879</td>
+      </tr>
+      <tr>
+        <td>Selling price</td>
+        <td>420</td>
+      </tr>
+      <tr>
+        <td>Total revenue</td>
+        <td>29,382</td>
+      </tr>
+      <tr>
+        <td>Total expenses</td>
+        <td>79,712</td>
+      </tr>
+    </tbody>
+  </table>
+  <a href="#" class="btn btn-orange">Generate Report</a>
+</div>
 
+<script>
+  // Get the modal
+  var modal = document.getElementById("editFarmModal");
 
+  // Get the button that opens the modal
+  var btn = document.getElementById("openModalBtn");
 
-       
+  // Get the <span> element that closes the modal
+  var span = document.getElementsByClassName("close")[0];
 
+  // When the user clicks the button, open the modal
+  btn.onclick = function () {
+    modal.style.display = "block";
+  };
 
+  // When the user clicks on <span> (x), close the modal
+  span.onclick = function () {
+    modal.style.display = "none";
+  };
+
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function (event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  };
+
+    function toggleEdit() {
+        var cells = document.querySelectorAll("#expenses-table tbody td:nth-child(2)");
+
+        cells.forEach(function(cell) {
+            cell.contentEditable = !cell.isContentEditable; // Toggle contentEditable attribute
+        });
+
+        var editBtn = document.getElementById("edit-expenses-btn");
+        if (editBtn.textContent === "Edit Expenses") {
+            editBtn.textContent = "Save Changes";
+        } else {
+            editBtn.textContent = "Edit Expenses";
+            updateTotalExpenses();
+        }
+    }
+
+    function updateTotalExpenses() {
+        var costCells = document.querySelectorAll("#expenses-table tbody td:nth-child(2)");
+        var totalExpenses = 0;
+
+        costCells.forEach(function(cell) {
+            var costText = cell.textContent.trim().replace(/,/g, ''); // Remove commas
+            var cost = parseInt(costText, 10); // Parse as integer
+            if (!isNaN(cost)) {
+                totalExpenses += cost;
+            }
+        });
+
+        document.getElementById("total-expenses").textContent = totalExpenses.toLocaleString(); // Update total with commas
+    }
+</script>
+
+{% endblock %}

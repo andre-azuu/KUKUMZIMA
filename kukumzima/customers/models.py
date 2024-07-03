@@ -1,5 +1,6 @@
 from django.db import models
 
+
 # Create your models here.
 class buyerdb(models.Model):
     buyerUsername= models.CharField(max_length=100)
@@ -13,7 +14,7 @@ class buyerdb(models.Model):
 
 class Order(models.Model):
     item=models.CharField(max_length=100)
-    unitPrice=models.IntegerField(max_length=100)
+    unitPrice=models.IntegerField()
     buyerdb= models.ForeignKey(buyerdb, on_delete=models.CASCADE)
     status=models.BooleanField
     orderDate=models.DateField

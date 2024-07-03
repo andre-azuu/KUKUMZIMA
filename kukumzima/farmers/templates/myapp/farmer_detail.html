@@ -9,5 +9,9 @@
     <p>Email: {{ farmer.dbfarmerEmail }}</p>
     <p>Address: {{ farmer.dbfarmerAddress }}</p>
     <a href="{% url 'farmer_list' %}">Back to list</a>
+    <a href="{% url 'farmer_update' farmer.pk %}">Edit details</a> 
+    <a href="{% url 'farmer_delete' farmer.pk %}">Delete Farmer</a>
+
+
 </body>
 </html>

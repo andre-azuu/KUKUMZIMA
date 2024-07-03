@@ -3,21 +3,173 @@
 {% block title %}Farm List - Kukumzima{% endblock %}
 
 {% block content %}
-    
-</head>
-<body>
+<style>
+        .btn-orange {
+        background-color: #ff9800; /* Orange color */
+        border-color: #ff9800;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        display: inline-block;
+        margin-top: 10px;
+        transition: background-color 0.3s;
+    }
+
+    .btn-orange:hover {
+        background-color: #e68900; /* Darker orange on hover */
+        border-color: #e68900;
+    }
+
+    /* Container and section styling */
+    .container {
+        margin-top: 20px;
+        background-color: rgba(0, 0, 0, 0.5); /* Darker semi-transparent background */
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Slightly darker shadow */
+        color: white; /* White text */
+        margin-bottom: 20px;
+    }
+
+    .zoom {
+        background-color: #ffc107; /* Yellow background for zoom */
+        color: #333;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    .section-title {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .table-bordered {
+        border: 1px solid #ccc;
+        width: 100%;
+        margin-top: 20px;
+        background-color: rgba(255, 255, 255, 0.1); /* Lighter semi-transparent background */
+    }
+    .table-container {
+    background-color: rgba(255, 255, 255, 0.8); /* Transparent background */
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+    .table-bordered th,
+    .table-bordered td {
+        padding: 10px;
+        text-align: center;
+    }
+
+    .table-bordered th {
+        background-color: #007bff; /* Blue header background */
+        color: white;
+    }
+
+    .table-bordered td {
+        background-color: rgba(255, 255, 255, 0.3); /* Light gray cells */
+    }
+
+    /* Modal styles */
+    .modal {
+        display: none; /* Hidden by default */
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    }
+
+    .modal-content {
+        background-color: #333;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        border-radius: 10px;
+        color: white;
+    }
+
+    .close {
+        color: #ccc;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: #fff;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .form-container {
+        width: 100%;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    .btn-primary {
+        background-color: #007bff; /* Blue button */
+        border-color: #007bff;
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3; /* Darker blue on hover */
+        border-color: #0056b3;
+    }
+
+</style>
+
+<div class="container" id="farms">
     <h1>Farm List</h1>
-    <a href="{% url 'farm_create' %}">Create New Farm</a>
-    <ul>
-        {% for farm in farms %}
-            <li>
-                <a href="{% url 'farm_detail' farm.pk %}">{{ farm.farmlocation }}</a> - 
-                <a href="{% url 'farm_update' farm.pk %}">Edit</a> - 
-                <a href="{% url 'farm_delete' farm.pk %}">Delete</a>
-            </li>
-        {% endfor %}
-    </ul>
-</body>
-</html>
+    <a href="{% url 'farm_create' %}" class="btn btn-primary mb-3">Create New Farm</a>
+    
+    {% for farm in farms %}
+    <table class="table table-dark table-striped">
+        <tr>
+            <th><h3>{{ farm.farmlocation }}</h3></th>
+            <th><h3>Farm ID: {{ farm.id }}</h3></th>
+        </tr>
+        <tr>
+            <td><strong>Number of Hens:</strong> {{ farm.numberOfHens }}</td>
+            <td><strong>Location:</strong> {{ farm.farmlocation }}</td>
+        </tr>
+        <tr>
+            <td><strong>Production Rate:</strong> {{ farm.productionRate }}%</td>
+            <td><strong>Profit/Loss:</strong> {{ farm.profitLoss }}</td>
+        </tr>
+        <tr>
+            <td><strong>Productivity:</strong> {{ farm.productivity }}%</td>
+        </tr>
+    </table>
+    <a href="{% url 'farm_update' farm.pk %}" class="btn btn-orange">Edit Farm Details</a>
+    <a href="{% url 'farm_detail' farm.pk %}" class="btn-orange" >Insights and Reports
+    </a>
+    {% endfor %}
+</div>
+        
+</div>
 
 {% endblock %}

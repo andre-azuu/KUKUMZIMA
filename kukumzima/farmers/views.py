@@ -1,8 +1,8 @@
-from django.shortcuts import render
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 from .models import FarmerDetail, Farm, Inventory, Order, Transaction
 from .forms import FarmerDetailForm, FarmForm, InventoryForm, OrderForm, TransactionForm
+
 
 
 def landing_page(request):
@@ -29,6 +29,23 @@ def signup(request):
 def landing(request):
     return render(request, 'myapp/landing.html')
 
+
+
+def order_detail(request):
+    
+    return render(request, 'myapp/orders.html')
+
+def accept_order(request, order_id):
+    order = get_object_or_404(Order, pk=order_id)
+    order.status = 'accepted'
+    order.save()
+    return redirect('order_detail', order_id=order.id)
+
+def decline_order(request, order_id):
+    order = get_object_or_404(Order, pk=order_id)
+    order.status = 'declined'
+    order.save()
+    return redirect('order_detail', order_id=order.id)
 
 
 # FarmerDetail Views
@@ -76,7 +93,7 @@ def farm_list(request):
 
 def farm_detail(request, pk):
     farm = get_object_or_404(Farm, pk=pk)
-    return render(request, 'myapp/farm_detail.html', {'farm': farm})
+    return render(request, 'myapp/farm.html', {'farm': farm})
 
 def farm_create(request):
     if request.method == 'POST':
@@ -105,6 +122,19 @@ def farm_delete(request, pk):
         farm.delete()
         return redirect('farm_list')
     return render(request, 'myapp/farm_confirm_delete.html', {'farm': farm})
+
+def edit_farm(request, pk):
+    farm = get_object_or_404(Farm, pk=pk)
+    
+    if request.method == 'POST':
+        form = FarmForm(request.POST, instance=farm)
+        if form.is_valid():
+            form.save()
+            return redirect('farm_detail', pk=farm.pk)  # Redirect to farm detail page
+    else:
+        form = FarmForm(instance=farm)
+    
+    return render(request, 'myapp/farm.html', {'form': form, 'farm': farm})
 
 
 # Inventory
@@ -183,3 +213,9 @@ def transaction_delete(request, pk):
         transaction.delete()
         return redirect('transaction_list')
     return render(request, 'transaction_confirm_delete.html', {'transaction': transaction})
+
+# buyers
+
+def buyer_list(request):
+    buyers = buyerdb.objects.all()
+    return render(request, 'myapp1/buyer_list.html', {'buyers': buyers})

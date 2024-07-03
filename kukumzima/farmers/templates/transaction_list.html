@@ -1,8 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Transaction List</title>
-</head>
+{% extends "myapp/base.html" %} {% load static %} 
+{% block title %} Transactions - Kukumzima {% endblock %}
+ {% block content %}
+
 <body>
     <h1>Transaction List</h1>
     <a href="{% url 'transaction_create' %}">Add New Transaction</a>
@@ -16,4 +15,5 @@
         {% endfor %}
     </ul>
 </body>
+{% endblock %}
 </html>

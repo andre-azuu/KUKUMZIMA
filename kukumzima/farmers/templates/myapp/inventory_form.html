@@ -1,8 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>{% if form.instance.pk %}Edit{% else %}Add{% endif %} Inventory Item</title>
-</head>
+{% extends "myapp/base.html" %} {% load static %} 
+{% block title %} Inventory - Kukumzima {% endblock %}
+ {% block content %}
+
 <body>
     <h1>{% if form.instance.pk %}Edit{% else %}Add{% endif %} Inventory Item</h1>
     <form method="post">
@@ -12,4 +11,5 @@
     </form>
     <a href="{% url 'inventory_list' %}">Cancel</a>
 </body>
+{% endblock %}
 </html>

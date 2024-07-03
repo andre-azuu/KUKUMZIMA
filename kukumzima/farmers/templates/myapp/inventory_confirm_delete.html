@@ -1,8 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Delete Inventory Item</title>
-</head>
+{% extends "myapp/base.html" %} {% load static %} 
+{% block title %} Inventory - Kukumzima {% endblock %}
+ {% block content %}
+
 <body>
     <h1>Are you sure you want to delete "{{ inventory.item }}"?</h1>
     <form method="post">
@@ -11,4 +10,6 @@
     </form>
     <a href="{% url 'inventory_list' %}">Cancel</a>
 </body>
+
+{% endblock %}
 </html>

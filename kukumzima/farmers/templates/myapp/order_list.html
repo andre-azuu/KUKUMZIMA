@@ -1,0 +1,15 @@
+<!-- order_detail.html -->
+
+{% extends "myapp/base.html" %}
+{% block title %}Order Detail{% endblock %}
+
+{% block content %}
+    <h1>Order Detail</h1>
+    <p><strong>Customer Name:</strong> {{ order.customer_name }}</p>
+    <p><strong>Status:</strong> {{ order.status }}</p>
+
+    {% if order.status == 'pending' %}
+        <a href="{% url 'accept_order' order.id %}" class="btn btn-success">Accept Order</a>
+        <a href="{% url 'decline_order' order.id %}" class="btn btn-danger">Decline Order</a>
+    {% endif %}
+{% endblock %}

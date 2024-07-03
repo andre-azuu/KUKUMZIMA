@@ -1,19 +1,79 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Farmer List</title>
+{% extends "myapp/base.html" %}
+{% block title %}Home - Kukumzima {% endblock %}
+
+
+{% block content %}
+
+    <style>
+        body {
+            background-color: rgba(0, 0, 0, 0.5); /* Dim background */
+            color: white; /* White text */
+            font-family: Arial, sans-serif; /* Optional: Specify a font */
+            padding: 20px; /* Add padding for better readability */
+        }
+
+        h1 {
+            font-size: 24px; /* Larger heading size */
+        }
+
+        ul {
+            list-style-type: none; /* Remove default list styles */
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px; /* Space between list items */
+        }
+
+        a {
+            color: #ffc107; /* Yellow link color */
+            text-decoration: none; /* Remove underline */
+            margin-right: 10px; /* Space between links */
+        }
+
+        a:hover {
+            text-decoration: underline; /* Underline on hover */
+        }
+
+        .btn-orange {
+            background-color: #ff9800; /* Orange button */
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 5px; /* Space between button and list item */
+            transition: background-color 0.3s;
+        }
+
+        .btn-orange:hover {
+            background-color: #e68900; /* Darker orange on hover */
+        }
+    </style>
 </head>
 <body>
     <h1>Farmer List</h1>
-    <a href="{% url 'farmer_create' %}">Create New Farmer</a>
+    
+
+        <a href="{% url 'farmer_create' %}" style="margin-bottom: 10px; display: block;">
+            <button class="btn-blue">
+
+                Create New Farmer
+            </button>
+        </a>
+    
     <ul>
         {% for farmer in farmers %}
             <li>
-                <a href="{% url 'farmer_detail' farmer.pk %}">{{ farmer.dbfarmerUsername }}</a> - 
-                <a href="{% url 'farmer_update' farmer.pk %}">Edit</a> - 
-                <a href="{% url 'farmer_delete' farmer.pk %}">Delete</a>
+                <a href="{% url 'farmer_detail' farmer.pk %}">{{ farmer.dbfarmerUsername }}</a> 
+                <a href="{% url 'farmer_detail' farmer.pk %}">View details</a> 
+                <button class="btn-orange">Insights and Reports</button>
             </li>
         {% endfor %}
     </ul>
 </body>
 </html>
+
+{% endblock %}
+</html>
+
