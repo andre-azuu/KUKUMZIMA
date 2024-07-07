@@ -21,6 +21,15 @@ class Farm(models.Model):
     class Meta:
         db_table = "farm"
 
+
+class EggProduction(models.Model):
+    farm = models.ForeignKey(Farm, on_delete=models.CASCADE)
+    date = models.DateField(auto_now_add=True)
+    eggs_count = models.IntegerField()
+
+    def __str__(self):
+        return f"Egg Production on {self.date} at {self.farm}"
+
 class Inventory(models.Model):
     quantityOfEggs = models.IntegerField()
     unitPrice = models.IntegerField()

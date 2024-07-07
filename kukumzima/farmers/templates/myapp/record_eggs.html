@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Record Eggs Production</title>
+<style>
+    /* Basic styling for the table */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+    th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: center;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+    td.editable {
+        cursor: pointer;
+    }
+    td.editable input {
+        width: 100%;
+        padding: 5px;
+        box-sizing: border-box;
+    }
+</style>
+<script>
+    // JavaScript function to update total eggs count
+    function updateTotalEggs() {
+        let totalEggs = 0;
+        const eggCounts = document.querySelectorAll('.egg-count');
+        eggCounts.forEach(eggCount => {
+            totalEggs += parseInt(eggCount.textContent);
+        });
+        document.getElementById('total-eggs').textContent = totalEggs;
+    }
+
+    // JavaScript function for inline editing
+    function enableEdit(td) {
+        td.classList.add('editable');
+        const input = document.createElement('input');
+        input.type = 'text';
+        input.value = td.textContent.trim();
+        input.onblur = function() {
+            td.textContent = this.value;
+            td.classList.remove('editable');
+            updateTotalEggs();
+        };
+        td.textContent = '';
+        td.appendChild(input);
+        input.focus();
+    }
+</script>
+</head>
+<body>
+
+<h1>Daily Egg Production for {{ farm.farmlocation }}</h1>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Record Eggs</button>
+</form>
+
+<h2>Total Eggs Recorded: <span id="total-eggs">{{ total_eggs }}</span></h2>
+
+<h3>Egg Production History</h3>
+<table>
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Amount</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for egg_production in egg_productions %}
+        <tr>
+            <td>{{ egg_production.date }}</td>
+            <td class="editable" onclick="enableEdit(this)">{{ egg_production.eggs_count }}</td>
+        </tr>
+        {% endfor %}
+        <tr>
+            <td>Total</td>
+            <td>{{ total_eggs }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- Call JavaScript function to update total eggs on page load -->
+<script>
+    updateTotalEggs();
+</script>
+
+</body>
+</html>

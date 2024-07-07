@@ -94,53 +94,8 @@
     <strong>Productivity (%)</strong>
     <strong>{{ farm.productivity }}</strong>
   </p>
-
-  <!-- Button to open the modal -->
-  <button class="btn btn-orange" id="openModalBtn">Edit Farm Details</button>
-
-  <!-- The Modal -->
-  <div id="editFarmModal" class="modal">
-    <!-- Modal content -->
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <div class="form-container mx-auto col-md-6">
-        <h2>Edit Farm Details</h2>
-        <form
-          method="post"
-          id="editFarmForm"
-          action="{% url 'edit_farm' farm.pk %}"
-        >
-          {% csrf_token %}
-          <div class="form-group">
-            <label for="farmlocation">Farm Location</label>
-            <input
-              type="text"
-              class="form-control"
-              id="farmlocation"
-              name="farmlocation"
-              value="{{ farm.farmlocation }}"
-              required
-            />
-          </div>
-          <div class="form-group">
-            <label for="numberOfHens">Number of Hens</label>
-            <input
-              type="number"
-              class="form-control"
-              id="numberOfHens"
-              name="numberOfHens"
-              value="{{ farm.numberOfHens }}"
-              required
-            />
-          </div>
-
-          <button type="submit" class="btn btn-orange">Save Changes</button>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
-
+  <a href="{% url 'farm_update' farm.pk %}" class="btn btn-orange">Edit Farm Details</a>
+  
 <div class="container">
   <div class="row">
     <div class="col-md-5">
@@ -165,6 +120,8 @@
       </table>
       <a href="{% url 'inventory_list' %}" class="btn btn-orange"
         >Manage Inventory</a>
+<a href="{% url 'record_eggs' farm.pk  %}">Record Eggs </a>
+
     </div>
     <div class="col-md-5">
         <table class="table table-bordered" id="expenses-table">

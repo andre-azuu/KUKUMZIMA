@@ -44,6 +44,8 @@ urlpatterns = [
     path('inventory/create/', inventory_create, name='inventory_create'),
     path('inventory/<int:pk>/delete/', inventory_delete, name='inventory_delete'),
 
+# recording eggs
+ path('record-eggs/<int:farm_id>/', views.record_eggs, name='record_eggs'),
 
 # transactions
     path('transactions/', transaction_list, name='transaction_list'),

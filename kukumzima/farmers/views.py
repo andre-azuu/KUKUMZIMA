@@ -1,8 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
-from .models import FarmerDetail, Farm, Inventory, Order, Transaction
-from .forms import FarmerDetailForm, FarmForm, InventoryForm, OrderForm, TransactionForm
-
+from .models import FarmerDetail, Farm, Inventory, Order, Transaction,EggProduction
+from .forms import FarmerDetailForm, FarmForm, InventoryForm, OrderForm, TransactionForm,EggProductionForm
+from django.db.models import Sum
 
 
 def landing_page(request):
@@ -135,6 +135,32 @@ def edit_farm(request, pk):
         form = FarmForm(instance=farm)
     
     return render(request, 'myapp/farm.html', {'form': form, 'farm': farm})
+
+
+# recording eggs
+def record_eggs(request, farm_id):
+    
+    farm = get_object_or_404(Farm, pk=farm_id)
+
+    if request.method == 'POST':
+        form = EggProductionForm(request.POST)
+        if form.is_valid():
+            egg_production = form.save(commit=False)
+            egg_production.farm = farm
+            egg_production.save()
+            return redirect('record_eggs', farm_id=farm_id)
+    else:
+        form = EggProductionForm()
+
+    total_eggs = EggProduction.objects.filter(farm=farm).aggregate(Sum('eggs_count'))['eggs_count__sum'] or 0
+
+    context = {
+        'form': form,
+        'total_eggs': total_eggs,
+        'farm': farm,
+        'egg_productions': EggProduction.objects.filter(farm=farm).order_by('-date'),
+    }
+    return render(request, 'myapp/record_eggs.html', context)
 
 
 # Inventory

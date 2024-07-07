@@ -1,3 +1,4 @@
+# Consumer app 
 from django.db import models
 
 

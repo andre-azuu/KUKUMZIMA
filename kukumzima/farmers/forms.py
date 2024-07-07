@@ -1,5 +1,5 @@
 from django import forms
-from .models import FarmerDetail, Farm, Inventory, Order, Transaction
+from .models import FarmerDetail, Farm, Inventory, Order, Transaction, EggProduction
 
 class FarmerDetailForm(forms.ModelForm):
     class Meta:
@@ -25,3 +25,8 @@ class TransactionForm(forms.ModelForm):
     class Meta:
         model = Transaction
         fields = '__all__'
+
+class EggProductionForm(forms.ModelForm):
+    class Meta:
+        model = EggProduction
+        fields = ['eggs_count']
