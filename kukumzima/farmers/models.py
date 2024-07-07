@@ -1,6 +1,8 @@
 from django.db import models
+from accounts.models import UserProfile
 
 class FarmerDetail(models.Model):
+    user_profile = models.OneToOneField(UserProfile, on_delete=models.CASCADE)
     dbfarmerUsername = models.CharField(max_length=100)
     dbfarmerPhonenum = models.CharField(max_length=15)
     dbfarmerPassword = models.CharField(max_length=255)

@@ -1,6 +1,7 @@
 # Consumer app
 
 from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
 from .models import buyerdb,Order
 
 # Create your views here.
@@ -8,7 +9,7 @@ from django.http import HttpResponse
 
 
 
-
+@login_required
 def buyer_list(request):
     buyers = buyerdb.objects.all()
     return render(request, 'myapp1/buyer_list.html', {'buyers': buyers})

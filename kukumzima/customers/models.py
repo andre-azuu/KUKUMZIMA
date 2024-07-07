@@ -1,9 +1,11 @@
 # Consumer app 
 from django.db import models
+from accounts.models import UserProfile
 
 
 # Create your models here.
 class buyerdb(models.Model):
+    user_profile = models.OneToOneField(UserProfile, on_delete=models.CASCADE)
     buyerUsername= models.CharField(max_length=100)
     buyerPhonenum= models.CharField(max_length=15)
     buyerPassword= models.CharField(max_length=255)

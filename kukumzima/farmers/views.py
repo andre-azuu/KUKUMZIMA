@@ -3,8 +3,10 @@ from django.http import HttpResponse
 from .models import FarmerDetail, Farm, Inventory, Order, Transaction,EggProduction
 from .forms import FarmerDetailForm, FarmForm, InventoryForm, OrderForm, TransactionForm,EggProductionForm
 from django.db.models import Sum
+from django.contrib.auth.decorators import login_required
 
 
+@login_required
 def landing_page(request):
     return render(request, 'landing.html')
 
